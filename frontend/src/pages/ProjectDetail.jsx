@@ -45,7 +45,10 @@ export default function ProjectDetail() {
   const [copiedUrl, setCopiedUrl] = useState(null);
   const [expandedSchema, setExpandedSchema] = useState({});
 
-  const BASE_URL = `${import.meta.env.VITE_API_URL || "http://localhost:5000"}/mock/${slug}`;
+  const API_ORIGIN = (
+    import.meta.env.VITE_API_URL || "http://localhost:5000/api"
+  ).replace("/api", "");
+  const BASE_URL = `${API_ORIGIN}/mock/${slug}`;
 
   const {
     register,
@@ -338,7 +341,7 @@ export default function ProjectDetail() {
                   <input
                     placeholder="e.g. users"
                     autoFocus
-                    className="font-mono"
+                    className="font-mono input-data"
                     {...register("name")}
                   />
                   {errors.name && (
