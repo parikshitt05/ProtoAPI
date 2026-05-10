@@ -29,17 +29,12 @@ const allowedOrigins = [
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      // allow requests with no origin (Postman, curl, Hoppscotch)
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: true, // allow ALL origins temporarily
     credentials: true,
   }),
 );
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, "0.0.0.0", () =>
+  console.log(`Server running on port ${PORT}`),
+);
