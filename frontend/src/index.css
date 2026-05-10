@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0F1115;
+    color: #F3F4F6;
+    font-family: 'Geist', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  select,
+  textarea {
+    @apply w-full bg-surface-elevated border border-line rounded-xl px-4 py-3 text-sm text-tx-primary
+           placeholder-tx-ghost outline-none transition-all duration-150
+           hover:border-line-hover
+           focus:border-brand-ring focus:ring-2 focus:ring-brand-ring/30 focus:bg-[#1a1f28];
+  }
+
+  select {
+    @apply appearance-none cursor-pointer;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-1.5 px-4 py-2.5 bg-brand text-surface-base font-semibold text-sm
+           rounded-xl border-none cursor-pointer transition-all duration-200
+           hover:bg-brand-hover hover:-translate-y-px hover:shadow-[0_8px_24px_rgba(16,185,129,0.14)]
+           active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-1.5 px-4 py-2.5 bg-transparent text-tx-secondary text-sm
+           border border-line rounded-xl cursor-pointer transition-all duration-150 font-normal
+           hover:text-tx-primary hover:border-line-hover hover:bg-white/[0.03];
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 bg-transparent text-tx-muted text-xs
+           border border-line rounded-lg cursor-pointer transition-all duration-150
+           hover:text-coral-accent hover:border-coral-border hover:bg-coral-muted;
+  }
+
+  .card {
+    @apply bg-surface-card border border-line rounded-2xl;
+  }
+
+  .card-glow {
+    @apply bg-surface-card border border-brand-border rounded-2xl
+           shadow-[0_0_0_1px_rgba(16,185,129,0.06),0_16px_40px_rgba(0,0,0,0.2)];
+  }
+
+  .field-label {
+    @apply block text-xs font-medium text-tx-secondary tracking-wide mb-1.5;
+  }
+
+  .field-error {
+    @apply text-[11px] text-coral-accent mt-1;
+  }
+
+  .input-data {
+    @apply w-full bg-surface-elevated border border-line rounded-xl px-4 py-3 text-sm text-tx-primary placeholder:text-tx-ghost outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition-all
+  }
+
+  .method-get    { @apply text-brand border-brand-border bg-brand-muted; }
+  .method-post   { @apply text-amber-accent border-amber-border bg-amber-muted; }
+  .method-put    { @apply text-blue-400 border-blue-400/20 bg-blue-400/[0.08]; }
+  .method-delete { @apply text-coral-accent border-coral-border bg-coral-muted; }
+}
